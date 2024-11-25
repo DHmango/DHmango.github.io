@@ -353,7 +353,7 @@
     <button class="button reset global-reset" onclick="resetAll()">Reset Both Alliances</button>
 
     <script>
-        // Counter class to replace Python class
+        // Counter class
         class Counter {
             constructor() {
                 this.total = 0;
@@ -368,7 +368,10 @@
 
         // Create counters
         const counter1 = new Counter();
+        const counter1a = new Counter();
         const counter2 = new Counter();
+        const counter2a = new Counter();
+
 
         // Constants
         const COUNTER_LIMITS = {
@@ -416,7 +419,7 @@
         }
 
         function updateTotal(counterId, amount, operation, isToggle = false) {
-            const counter = counterId === 1 ? counter1 : counter2;
+            const counter = counterId === 1 ? counter1 : counterId === 2 ? counter2 : counterId === 3 counter1a : counter2a;
 
             if (!isToggle && operation === 1) {
                 const elementId = `count-${counterId}-${amount}`;
@@ -466,7 +469,7 @@
         }
 
         function resetCounter(counterId) {
-            const counter = counterId === 1 ? counter1 : counter2;
+            const counter = counterId === 1 ? counter1 : counterId === 2 ? counter2 : counterId === 3 counter1a : counter2a;
             counter.total = 0;
             for (const key in counter.click_counts) {
                 counter.click_counts[key] = 0;
