@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>FTC INTO THE DEEP Scoring</title>
-    <link rel="icon" href="https://dhmango.github.io/Logo.PNG">
+    <link rel="icon" href="https://i.ibb.co/3v0rqsx/Ctrl-Y-Logo.png">
 </head>
 <body style="background-color:#0063cf;">
     <style>
@@ -140,13 +140,13 @@
         }
     </style>
 
-    <a href="https://ftc.ctrlyrobotics.org">
-        <img src="https://dhmango.github.io/Logo.PNG" style="width:200px;height:200px;">
+    <a href="https://ftc.ctrlyrobotics.org/">
+        <img src="https://i.ibb.co/3v0rqsx/Ctrl-Y-Logo.png" style="width:200px;height:200px;">
     </a>
     <h1> </h1>
 
     <div class="counters-container">
-        <!-- Red  Alliance -->
+        <!-- Red Alliance -->
         <div class="counter counter-red">
             <h2>Red Alliance</h2>
             <div id="total-1" class="total positive">0</div>
@@ -353,7 +353,7 @@
     <button class="button reset global-reset" onclick="resetAll()">Reset Both Alliances</button>
 
     <script>
-        // Counter class
+        // Counter class to replace Python class
         class Counter {
             constructor() {
                 this.total = 0;
@@ -368,10 +368,7 @@
 
         // Create counters
         const counter1 = new Counter();
-        const counter1a = new Counter();
         const counter2 = new Counter();
-        const counter2a = new Counter();
-
 
         // Constants
         const COUNTER_LIMITS = {
@@ -419,7 +416,7 @@
         }
 
         function updateTotal(counterId, amount, operation, isToggle = false) {
-            const counter = counterId === 1 ? counter1 : counterId === 2 ? counter2 : counterId === 3 counter1a : counter2a;
+            const counter = counterId === 1 ? counter1 : counter2;
 
             if (!isToggle && operation === 1) {
                 const elementId = `count-${counterId}-${amount}`;
@@ -469,7 +466,7 @@
         }
 
         function resetCounter(counterId) {
-            const counter = counterId === 1 ? counter1 : counterId === 2 ? counter2 : counterId === 3 counter1a : counter2a;
+            const counter = counterId === 1 ? counter1 : counter2;
             counter.total = 0;
             for (const key in counter.click_counts) {
                 counter.click_counts[key] = 0;
