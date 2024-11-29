@@ -8,7 +8,6 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 1600px;
             margin: 40px auto;
             padding: 20px;
             text-align: center;
@@ -37,14 +36,16 @@
             flex-wrap: wrap;
         }
         .button-group {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             background-color: #f5f5f5;
             padding: 15px;
             border-radius: 10px;
             min-width: 100px;
+            float: left;
+            border: 2px solid #ddd;
         }
+        .third {
+            width: 25%;}
+        .half {width:39.9%;}
         .button {
             font-size: 18px;
             padding: 10px 20px;
@@ -53,13 +54,19 @@
             border-radius: 5px;
             color: white;
             transition: background-color 0.3s;
-            width: 100px;
+            width: 50px;
             margin: 5px;
+        }
+         .resetw {
+            width: 100px;
         }
         .toggle-button {
             background-color: #4CAF50;
             width: 120px;
             position: relative;
+        }
+        .clear {
+        clear:both;
         }
         .toggle-button:hover {
             background-color: #45a049;
@@ -134,6 +141,7 @@
         .global-reset {
             background-color: #f96a00;
             margin-top: 40px;
+            border: 2px solid white;
         }
         .global-reset:hover {
             background-color: #d45a00;
@@ -152,101 +160,101 @@
             <div id="total-1" class="total positive">0</div>
             <div class="button-container">
                 <!-- Scoring elements -->
-                <div class="button-group">
+                 <div class="button-group third">
+                    <div class="number-label">Auto Net Zone</div>
+                    <button class="button subtract" onclick="updateTotal(1, 'an', -1)">-</button>
+                    <button class="button add" onclick="updateTotal(1, 'an', 1)">+</button>
+                    <div class="click-count">Count: <span id="count-1-an">0</span></div>
+                </div>
+                <div class="button-group third">
+                    <div class="number-label">Auto Low Basket</div>
+                    <button class="button subtract" onclick="updateTotal(1, 'al', -1)">-</button>
+                    <button class="button add" onclick="updateTotal(1, 'al', 1)">+</button>
+                    <div class="click-count">Count: <span id="count-1-al">0</span></div>
+                </div>
+                <div class="button-group third">
+                    <div class="number-label">Auto High Basket</div>
+                    <button class="button subtract" onclick="updateTotal(1, 'ah', -1)">-</button>
+                    <button class="button add" onclick="updateTotal(1, 'ah', 1)">+</button>
+                    <div class="click-count">Count: <span id="count-1-ah">0</span></div>
+                </div>
+                <div class="button-group third">
+                    <div class="number-label">Auto Low Chamber</div>
+                    <button class="button subtract" onclick="updateTotal(1, 'lc', -1)">-</button>
+                    <button class="button add" onclick="updateTotal(1, 'lc', 1)">+</button>
+                    <div class="click-count">Count: <span id="count-1-lc">0</span></div>
+                </div>
+                <div class="button-group third">
+                    <div class="number-label">Auto High Chamber</div>
+                    <button class="button subtract" onclick="updateTotal(1, 'hc', -1)">-</button>
+                    <button class="button add" onclick="updateTotal(1, 'hc', 1)">+</button>
+                    <div class="click-count">Count: <span id="count-1-hc">0</span></div>
+                </div>
+                <div class="button-group third">
+                    <div class="number-label">Auto Park/Ascent Count</div>
+                    <button class="button subtract" onclick="updateTotal(1, 'ap', -1)">-</button>
+                    <button class="button add" onclick="updateTotal(1, 'ap', 1)">+</button>
+                    <div class="click-count">Count: <span id="count-1-ap">0</span></div>
+                </div>
+                <div class="button-group third">
                     <div class="number-label">Net Zone</div>
-                    <button class="button add" onclick="updateTotal(1, 2, 1)">+</button>
                     <button class="button subtract" onclick="updateTotal(1, 2, -1)">-</button>
+                    <button class="button add" onclick="updateTotal(1, 2, 1)">+</button>
                     <div class="click-count">Count: <span id="count-1-2">0</span></div>
                 </div>
-                <div class="button-group">
+                <div class="button-group third">
                     <div class="number-label">Low Basket</div>
-                    <button class="button add" onclick="updateTotal(1, 4, 1)">+</button>
                     <button class="button subtract" onclick="updateTotal(1, 4, -1)">-</button>
+                    <button class="button add" onclick="updateTotal(1, 4, 1)">+</button>
                     <div class="click-count">Count: <span id="count-1-4">0</span></div>
                 </div>
 
-                <div class="button-group">
+                <div class="button-group third">
                     <div class="number-label">High Basket</div>
-                    <button class="button add" onclick="updateTotal(1, 8, 1)">+</button>
                     <button class="button subtract" onclick="updateTotal(1, 8, -1)">-</button>
+                    <button class="button add" onclick="updateTotal(1, 8, 1)">+</button>
                     <div class="click-count">Count: <span id="count-1-8">0</span></div>
                 </div>
-                <div class="button-group">
+                <div class="button-group half">
                     <div class="number-label">Low Chamber</div>
-                    <button class="button add" onclick="updateTotal(1, 6, 1)">+</button>
                     <button class="button subtract" onclick="updateTotal(1, 6, -1)">-</button>
+                    <button class="button add" onclick="updateTotal(1, 6, 1)">+</button>
                     <div class="click-count">Count: <span id="count-1-6">0</span></div>
                 </div>
-                <div class="button-group">
+                <div class="button-group half">
                     <div class="number-label">High Chamber</div>
-                    <button class="button add" onclick="updateTotal(1, 10, 1)">+</button>
                     <button class="button subtract" onclick="updateTotal(1, 10, -1)">-</button>
+                    <button class="button add" onclick="updateTotal(1, 10, 1)">+</button>
                     <div class="click-count">Count: <span id="count-1-10">0</span></div>
                 </div>
-                <div class="button-group">
+                <div class="button-group clear half">
                     <div class="number-label">Robot 1 Endgame Ascent</div>
                     <div class="toggle-value" id="toggle-value-1-1">0</div>
                     <button class="button toggle-button" onclick="cycleToggleValue(1, 1)">Toggle</button>
                     <div class="click-count">Level <span id="count-1-1-current">0</span></div>
                 </div>
-                <div class="button-group">
+                <div class="button-group half">
                     <div class="number-label">Robot 2 Endgame Ascent</div>
                     <div class="toggle-value" id="toggle-value-1-2">0</div>
                     <button class="button toggle-button" onclick="cycleToggleValue(1, 2)">Toggle</button>
                     <div class="click-count">Level <span id="count-1-2-current">0</span></div>
                 </div>
-                <div class="button-group">
-                    <div class="number-label">Auto Park/Ascent Count</div>
-                    <button class="button add" onclick="updateTotal(1, 'ap', 1)">+</button>
-                    <button class="button subtract" onclick="updateTotal(1, 'ap', -1)">-</button>
-                    <div class="click-count">Count: <span id="count-1-ap">0</span></div>
-                </div>
-                <div class="button-group">
-                    <div class="number-label">Auto Net Zone</div>
-                    <button class="button add" onclick="updateTotal(1, 'an', 1)">+</button>
-                    <button class="button subtract" onclick="updateTotal(1, 'an', -1)">-</button>
-                    <div class="click-count">Count: <span id="count-1-an">0</span></div>
-                </div>
-                <div class="button-group">
-                    <div class="number-label">Auto Low Basket</div>
-                    <button class="button add" onclick="updateTotal(1, 'al', 1)">+</button>
-                    <button class="button subtract" onclick="updateTotal(1, 'al', -1)">-</button>
-                    <div class="click-count">Count: <span id="count-1-al">0</span></div>
-                </div>
-                <div class="button-group">
-                    <div class="number-label">Auto High Basket</div>
-                    <button class="button add" onclick="updateTotal(1, 'ah', 1)">+</button>
-                    <button class="button subtract" onclick="updateTotal(1, 'ah', -1)">-</button>
-                    <div class="click-count">Count: <span id="count-1-ah">0</span></div>
-                </div>
-                <div class="button-group">
-                    <div class="number-label">Auto Low Chamber</div>
-                    <button class="button add" onclick="updateTotal(1, 'lc', 1)">+</button>
-                    <button class="button subtract" onclick="updateTotal(1, 'lc', -1)">-</button>
-                    <div class="click-count">Count: <span id="count-1-lc">0</span></div>
-                </div>
-                <div class="button-group">
-                    <div class="number-label">Auto High Chamber</div>
-                    <button class="button add" onclick="updateTotal(1, 'hc', 1)">+</button>
-                    <button class="button subtract" onclick="updateTotal(1, 'hc', -1)">-</button>
-                    <div class="click-count">Count: <span id="count-1-hc">0</span></div>
-                </div>
-                <div class="button-group">
+                <div class="button-group half">
                     <div class="number-label">Minor Foul</div>
-                    <button class="button add" onclick="updateTotal(2, 5, 1)">+</button>
                     <button class="button subtract" onclick="updateTotal(2, 5, -1)">-</button>
+                    <button class="button add" onclick="updateTotal(2, 5, 1)">+</button>
                     <div class="click-count">Count: <span id="count-2-5">0</span></div>
                 </div>
-                <div class="button-group">
+                <div class="button-group half">
                     <div class="number-label">Major Foul</div>
-                    <button class="button add" onclick="updateTotal(2, 15, 1)">+</button>
                     <button class="button subtract" onclick="updateTotal(2, 15, -1)">-</button>
+                    <button class="button add" onclick="updateTotal(2, 15, 1)">+</button>
                     <div class="click-count">Count: <span id="count-2-15">0</span></div>
                 </div>
                 <!-- Add other button groups here (same structure as original) -->
                 <!-- ... -->
             </div>
-            <button class="button reset" onclick="resetCounter(1)">Reset Red Alliance</button>
+            <button class="button resetw reset" onclick="resetCounter(1)">Reset Red Alliance</button>
         </div>
 
         <!-- Blue Alliance -->
@@ -254,103 +262,103 @@
             <h2>Blue Alliance</h2>
             <div id="total-2" class="total positive">0</div>
             <div class="button-container">
-                <div class="button-group">
+                <div class="button-group third">
+                    <div class="number-label">Auto Net Zone</div>
+                    <button class="button subtract" onclick="updateTotal(2, 'an', -1)">-</button>
+                    <button class="button add" onclick="updateTotal(2, 'an', 1)">+</button>
+                    <div class="click-count">Count: <span id="count-2-an">0</span></div>
+                </div>
+                <div class="button-group third">
+                    <div class="number-label">Auto Low Basket</div>
+                    <button class="button subtract" onclick="updateTotal(2, 'al', -1)">-</button>
+                    <button class="button add" onclick="updateTotal(2, 'al', 2)">+</button>
+                    <div class="click-count">Count: <span id="count-2-al">0</span></div>
+                </div>
+                <div class="button-group third">
+                    <div class="number-label">Auto High Basket</div>
+                    <button class="button subtract" onclick="updateTotal(2, 'ah', -1)">-</button>
+                    <button class="button add" onclick="updateTotal(2, 'ah', 1)">+</button>
+                    <div class="click-count">Count: <span id="count-2-ah">0</span></div>
+                </div>
+                <div class="button-group third">
+                    <div class="number-label">Auto Low Chamber</div>
+                    <button class="button subtract" onclick="updateTotal(2, 'lc', -1)">-</button>
+                    <button class="button add" onclick="updateTotal(2, 'lc', 1)">+</button>
+                    <div class="click-count">Count: <span id="count-2-lc">0</span></div>
+                </div>
+                <div class="button-group third">
+                    <div class="number-label">Auto High Chamber</div>
+                    <button class="button subtract" onclick="updateTotal(2, 'hc', -1)">-</button>
+                    <button class="button add" onclick="updateTotal(2, 'hc', 1)">+</button>
+                    <div class="click-count">Count: <span id="count-2-hc">0</span></div>
+                </div>
+                <div class="button-group third">
+                    <div class="number-label">Auto Park/Ascent Count</div>
+                    <button class="button subtract" onclick="updateTotal(2, 'ap', -1)">-</button>
+                    <button class="button add" onclick="updateTotal(2, 'ap', 1)">+</button>
+                    <div class="click-count">Count: <span id="count-2-ap">0</span></div>
+                </div>
+                <div class="button-group third">
                     <div class="number-label">Net Zone</div>
-                    <button class="button add" onclick="updateTotal(2, 2, 1)">+</button>
                     <button class="button subtract" onclick="updateTotal(2, 2, -1)">-</button>
+                    <button class="button add" onclick="updateTotal(2, 2, 1)">+</button>
                     <div class="click-count">Count: <span id="count-2-2">0</span></div>
                 </div>
-                <div class="button-group">
+                <div class="button-group third">
                     <div class="number-label">Low Basket</div>
-                    <button class="button add" onclick="updateTotal(2, 4, 1)">+</button>
                     <button class="button subtract" onclick="updateTotal(2, 4, -1)">-</button>
+                    <button class="button add" onclick="updateTotal(2, 4, 1)">+</button>
                     <div class="click-count">Count: <span id="count-2-4">0</span></div>
                 </div>
-                <div class="button-group">
+                <div class="button-group third">
                     <div class="number-label">High Basket</div>
-                    <button class="button add" onclick="updateTotal(2, 8, 1)">+</button>
                     <button class="button subtract" onclick="updateTotal(2, 8, -1)">-</button>
+                    <button class="button add" onclick="updateTotal(2, 8, 1)">+</button>
                     <div class="click-count">Count: <span id="count-2-8">0</span></div>
                 </div>
-                <div class="button-group">
+                <div class="button-group half">
                     <div class="number-label">Low Chamber</div>
-                    <button class="button add" onclick="updateTotal(2, 6, 1)">+</button>
                     <button class="button subtract" onclick="updateTotal(2, 6, -1)">-</button>
+                    <button class="button add" onclick="updateTotal(2, 6, 1)">+</button>
                     <div class="click-count">Count: <span id="count-2-6">0</span></div>
                 </div>
-                <div class="button-group">
+                <div class="button-group half">
                     <div class="number-label">High Chamber</div>
-                    <button class="button add" onclick="updateTotal(2, 10, 1)">+</button>
                     <button class="button subtract" onclick="updateTotal(2, 10, -1)">-</button>
+                    <button class="button add" onclick="updateTotal(2, 10, 1)">+</button>
                     <div class="click-count">Count: <span id="count-2-10">0</span></div>
                 </div>
-                <div class="button-group">
+                <div class="button-group half">
                     <div class="number-label">Robot 1 Endgame Ascent</div>
                     <div class="toggle-value" id="toggle-value-2-1">0</div>
                     <button class="button toggle-button" onclick="cycleToggleValue(2, 1)">Toggle</button>
                     <div class="click-count">Level <span id="count-2-1-current">0</span></div>
                 </div>
-                <div class="button-group">
+                <div class="button-group half">
                     <div class="number-label">Robot 2 Endgame Ascent</div>
                     <div class="toggle-value" id="toggle-value-2-2">0</div>
                     <button class="button toggle-button" onclick="cycleToggleValue(2, 2)">Toggle</button>
                     <div class="click-count">Level <span id="count-2-2-current">0</span></div>
                 </div>
-                <div class="button-group">
-                    <div class="number-label">Auto Park/Ascent Count</div>
-                    <button class="button add" onclick="updateTotal(2, 'ap', 1)">+</button>
-                    <button class="button subtract" onclick="updateTotal(2, 'ap', -1)">-</button>
-                    <div class="click-count">Count: <span id="count-2-ap">0</span></div>
-                </div>
-                <div class="button-group">
-                    <div class="number-label">Auto Net Zone</div>
-                    <button class="button add" onclick="updateTotal(2, 'an', 1)">+</button>
-                    <button class="button subtract" onclick="updateTotal(2, 'an', -1)">-</button>
-                    <div class="click-count">Count: <span id="count-2-an">0</span></div>
-                </div>
-                <div class="button-group">
-                    <div class="number-label">Auto Low Basket</div>
-                    <button class="button add" onclick="updateTotal(2, 'al', 2)">+</button>
-                    <button class="button subtract" onclick="updateTotal(2, 'al', -1)">-</button>
-                    <div class="click-count">Count: <span id="count-2-al">0</span></div>
-                </div>
-                <div class="button-group">
-                    <div class="number-label">Auto High Basket</div>
-                    <button class="button add" onclick="updateTotal(2, 'ah', 1)">+</button>
-                    <button class="button subtract" onclick="updateTotal(2, 'ah', -1)">-</button>
-                    <div class="click-count">Count: <span id="count-2-ah">0</span></div>
-                </div>
-                <div class="button-group">
-                    <div class="number-label">Auto Low Chamber</div>
-                    <button class="button add" onclick="updateTotal(2, 'lc', 1)">+</button>
-                    <button class="button subtract" onclick="updateTotal(2, 'lc', -1)">-</button>
-                    <div class="click-count">Count: <span id="count-2-lc">0</span></div>
-                </div>
-                <div class="button-group">
-                    <div class="number-label">Auto High Chamber</div>
-                    <button class="button add" onclick="updateTotal(2, 'hc', 1)">+</button>
-                    <button class="button subtract" onclick="updateTotal(2, 'hc', -1)">-</button>
-                    <div class="click-count">Count: <span id="count-2-hc">0</span></div>
-                </div>
-                <div class="button-group">
+                <div class="button-group half">
                     <div class="number-label">Minor Foul</div>
-                    <button class="button add" onclick="updateTotal(1, 5, 1)">+</button>
                     <button class="button subtract" onclick="updateTotal(1, 5, -1)">-</button>
+                    <button class="button add" onclick="updateTotal(1, 5, 1)">+</button>
                     <div class="click-count">Count: <span id="count-1-5">0</span></div>
                 </div>
-                <div class="button-group">
+                <div class="button-group half">
                     <div class="number-label">Major Foul</div>
-                    <button class="button add" onclick="updateTotal(1, 15, 1)">+</button>
                     <button class="button subtract" onclick="updateTotal(1, 15, -1)">-</button>
+                    <button class="button add" onclick="updateTotal(1, 15, 1)">+</button>
                     <div class="click-count">Count: <span id="count-1-15">0</span></div>
                 </div><!-- Scoring elements -->
                 <!-- ... -->
             </div>
-            <button class="button reset" onclick="resetCounter(2)">Reset Blue Alliance</button>
+            <button class="button resetw reset" onclick="resetCounter(2)">Reset Blue Alliance</button>
         </div>
     </div>
 
-    <button class="button reset global-reset" onclick="resetAll()">Reset Both Alliances</button>
+    <button class="button reset resetw global-reset" onclick="resetAll()">Reset Both Alliances</button>
 
     <script>
         // Counter class to replace Python class
